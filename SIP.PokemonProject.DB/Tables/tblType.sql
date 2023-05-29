@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[tblType]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [TypeName] VARCHAR(50) NOT NULL, 
+    [TypeIcon] IMAGE NULL, 
+)

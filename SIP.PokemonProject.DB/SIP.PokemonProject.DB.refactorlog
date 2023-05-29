@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="26852679-d8e8-4549-9ac2-6e26eba2d4b2" ChangeDateTime="04/27/2023 23:56:37">
+    <Property Name="ElementName" Value="[dbo].[tblPokedex].[Pokedex#]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblPokedex]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PokedexNum" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="90b849af-8b78-44a5-8721-96a671ba570f" ChangeDateTime="04/27/2023 23:57:33">
+    <Property Name="ElementName" Value="[dbo].[tblPokedex].[BaseAttack]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblPokedex]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BaseHP" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ec44e7d7-b01c-472a-993c-0c72eb58fa9f" ChangeDateTime="04/27/2023 23:58:35">
+    <Property Name="ElementName" Value="[dbo].[tblPokedex].[Speed]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblPokedex]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BaseSpeed" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="76242a15-70c0-4421-a262-60989965a9db" ChangeDateTime="04/28/2023 00:45:21">
+    <Property Name="ElementName" Value="[dbo].[tblSpeciesAbility].[PokedexNum]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblSpeciesAbility]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PokedexId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c3c65feb-0712-47b5-bf32-be08c2f8fee7" ChangeDateTime="04/28/2023 00:54:01">
+    <Property Name="ElementName" Value="[dbo].[tblAbility].[StatIncrease]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblAbility]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="StatIncreased" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8563067b-7f9c-4d2b-a324-bbf6ec380fd5" ChangeDateTime="05/06/2023 02:47:57">
+    <Property Name="ElementName" Value="[dbo].[tblAddedAffects].[AddedEffect]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblAddedAffects]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Effect" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e75169b7-4693-4e2e-a317-29f7c7d45705" ChangeDateTime="05/06/2023 02:51:57">
+    <Property Name="ElementName" Value="[dbo].[tblPokedex].[Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblPokedex]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SpeciesName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1d991f53-870f-49a5-8605-419c1532882c" ChangeDateTime="05/06/2023 22:26:43">
+    <Property Name="ElementName" Value="[dbo].[tblMove].[Type]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblMove]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TypeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e80feea3-8700-475a-a256-96499b106487" ChangeDateTime="05/29/2023 00:37:50">
+    <Property Name="ElementName" Value="[dbo].[tblPokedex].[Type1]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblPokedex]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Type1Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="98470b00-6470-4bc8-aa42-8486cfe84b86" ChangeDateTime="05/29/2023 00:37:53">
+    <Property Name="ElementName" Value="[dbo].[tblPokedex].[Type2]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblPokedex]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Type2Id" />
+  </Operation>
+</Operations>

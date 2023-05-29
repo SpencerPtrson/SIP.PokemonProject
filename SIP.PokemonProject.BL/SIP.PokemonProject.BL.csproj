@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SIP.PokemonProject.BL.Models\SIP.PokemonProject.BL.Models.csproj" />
+    <ProjectReference Include="..\SIP.PokemonProject.PL\SIP.PokemonProject.PL.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[tblAddedAffects]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+    [MoveId] UNIQUEIDENTIFIER NOT NULL,
+    [Effect] VARCHAR(200) NOT NULL, 
+    [Chance] INT NOT NULL
+)

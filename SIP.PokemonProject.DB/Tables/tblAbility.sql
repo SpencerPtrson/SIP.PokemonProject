@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[tblAbility]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [Name] VARCHAR(50) NOT NULL, 
+    [Description] VARCHAR(200) NOT NULL
+)

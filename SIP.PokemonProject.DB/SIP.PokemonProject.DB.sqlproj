@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SIP.PokemonProject.DB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{329c227d-d5fc-42c3-b37f-af4cc650b0e1}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SIP.PokemonProject.DB</RootNamespace>
+    <AssemblyName>SIP.PokemonProject.DB</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="PostDeploy" />
+    <Folder Include="PreDeploy" />
+    <Folder Include="PostDeploy\DefaultData" />
+    <Folder Include="Functions" />
+    <Folder Include="ForeignKeys" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\tblPokedex.sql" />
+    <Build Include="Tables\tblPokemon.sql" />
+    <Build Include="Tables\tblTrainer.sql" />
+    <Build Include="Tables\tblPokemonTeam.sql" />
+    <Build Include="Tables\tblAbility.sql" />
+    <Build Include="Tables\tblSpeciesAbility.sql" />
+    <None Include="PostDeploy\DefaultData\Pokedex.sql" />
+    <None Include="PostDeploy\DefaultData\Trainers.sql" />
+    <None Include="PostDeploy\DefaultData\SpeciesAbilities.sql" />
+    <Build Include="Functions\fnPokedexId.sql" />
+    <Build Include="Functions\fnAbilityId.sql" />
+    <Build Include="Tables\tblNature.sql" />
+    <Build Include="Functions\fnSpeciesAbility.sql" />
+    <Build Include="Functions\fnNatureId.sql" />
+    <Build Include="Functions\fnItemId.sql" />
+    <None Include="PostDeploy\DefaultData\Natures.sql" />
+    <Build Include="Functions\fnTrainerId.sql" />
+    <Build Include="Functions\fnPokemonId.sql" />
+    <Build Include="Tables\tblMove.sql" />
+    <Build Include="Tables\tblAddedEffects.sql" />
+    <Build Include="Tables\tblType.sql" />
+    <None Include="PostDeploy\DefaultData\Types.sql" />
+    <Build Include="Functions\fnTypeId.sql" />
+    <Build Include="ForeignKeys\fk_tblPokemon_Type1Id.sql" />
+    <Build Include="ForeignKeys\fk_tblPokemon_Type2Id.sql" />
+    <Build Include="ForeignKeys\fk_tblMove_TypeId.sql" />
+    <Build Include="ForeignKeys\fk_tblPokemon_SpeciesAbilityId.sql" />
+    <Build Include="ForeignKeys\fk_tblPokemon_SpeciesId.sql" />
+    <Build Include="ForeignKeys\fk_tblPokemon_NatureId.sql" />
+    <Build Include="Tables\tblItem.sql" />
+    <None Include="PostDeploy\DefaultData\Items.sql" />
+    <Build Include="ForeignKeys\fk_tblPokemon_ItemId.sql" />
+    <Build Include="ForeignKeys\fk_tblPokemonTeam_TrainerId.sql" />
+    <Build Include="ForeignKeys\fk_tblPokemonTeam_PokemonId.sql" />
+    <Build Include="Tables\tblMajorStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="SIP.PokemonProject.DB.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="PreDeploy\Script.PreDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeploy\Script.PostDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PostDeploy\DefaultData\Abilities.sql" />
+    <None Include="PostDeploy\DefaultData\Pokemon.sql" />
+    <None Include="PostDeploy\DefaultData\PokemonTeams.sql" />
+    <None Include="local.publish.xml" />
+    <None Include="PostDeploy\DefaultData\Moves.sql" />
+  </ItemGroup>
+</Project>
