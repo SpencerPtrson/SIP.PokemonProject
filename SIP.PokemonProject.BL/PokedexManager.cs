@@ -18,24 +18,32 @@ namespace SIP.PokemonProject.BL
         // Load a list of pokemon species with data for each of them
         public async Task<List<PokedexData>> Load()
         {
-            List<PokedexData> speciesList = new List<PokedexData>();
-            (await base.Load()).ToList().ForEach(pd => speciesList.Add(new PokedexData
+            try
             {
-                SpeciesId = pd.Id,
-                PokedexNum = pd.PokedexNum,
-                SpeciesName = pd.SpeciesName,
-                Type1Id = pd.Type1Id,
-                Type2Id = pd.Type2Id,
-                BaseHP = pd.BaseHP,
-                BaseAttack = pd.BaseAttack,
-                BaseDefense = pd.BaseDefense,
-                BaseSpecialAttack = pd.BaseSpecialAttack,
-                BaseSpecialDefense = pd.BaseSpecialDefense,
-                BaseSpeed = pd.BaseSpeed,
-                SpritePath = pd.SpriteName
-            }));
-            speciesList = speciesList.OrderBy(pd => pd.PokedexNum).ToList();
-            return speciesList;
+                List<PokedexData> speciesList = new List<PokedexData>();
+                (await base.Load())
+                    .ToList()
+                    .ForEach(pd => speciesList.Add(new PokedexData
+                    {
+                        SpeciesId = pd.Id,
+                        PokedexNum = pd.PokedexNum,
+                        SpeciesName = pd.SpeciesName,
+                        Type1Id = pd.Type1Id,
+                        Type2Id = pd.Type2Id,
+                        Type1Name = pd.Type1.TypeName,
+                        Type2Name = pd.Type2.TypeName,
+                        BaseHP = pd.BaseHP,
+                        BaseAttack = pd.BaseAttack,
+                        BaseDefense = pd.BaseDefense,
+                        BaseSpecialAttack = pd.BaseSpecialAttack,
+                        BaseSpecialDefense = pd.BaseSpecialDefense,
+                        BaseSpeed = pd.BaseSpeed,
+                        SpritePath = pd.SpriteName
+                    }));
+                speciesList = speciesList.OrderBy(pd => pd.PokedexNum).ToList();
+                return speciesList;
+            }
+            catch (Exception ex) { throw; }
         }
 
         // Load data about a specific pokemon species
@@ -49,6 +57,8 @@ namespace SIP.PokemonProject.BL
                 SpeciesName = tblPokedex.SpeciesName,
                 Type1Id= tblPokedex.Type1Id,
                 Type2Id = tblPokedex.Type2Id,
+                Type1Name = tblPokedex.Type1.TypeName,
+                Type2Name = tblPokedex.Type2.TypeName,
                 BaseHP = tblPokedex.BaseHP, 
                 BaseAttack= tblPokedex.BaseAttack,
                 BaseDefense= tblPokedex.BaseDefense,
@@ -75,6 +85,8 @@ namespace SIP.PokemonProject.BL
                         speciesData.SpeciesName = tblPokedex.SpeciesName;
                         speciesData.Type1Id = tblPokedex.Type1Id;
                         speciesData.Type2Id = tblPokedex.Type2Id;
+                        speciesData.Type1Name = tblPokedex.Type1.TypeName;
+                        speciesData.Type2Name = tblPokedex.Type2.TypeName;
                         speciesData.BaseHP = tblPokedex.BaseHP;
                         speciesData.BaseAttack = tblPokedex.BaseAttack;
                         speciesData.BaseDefense = tblPokedex.BaseDefense;

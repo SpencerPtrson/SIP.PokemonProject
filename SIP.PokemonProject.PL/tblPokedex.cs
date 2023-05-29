@@ -29,5 +29,9 @@ public partial class tblPokedex : IEntity
 
     public string SpriteName { get; set; } = null!;
 
+    public virtual tblType Type1 { get; set; } = null!;
+
+    public virtual tblType Type2 { get; set; } = null!;
+
     public virtual ICollection<tblPokemon> tblPokemons { get; set; } = new List<tblPokemon>();
 }

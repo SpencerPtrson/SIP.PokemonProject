@@ -99,6 +99,8 @@
     <Build Include="ForeignKeys\fk_tblPokemonTeam_TrainerId.sql" />
     <Build Include="ForeignKeys\fk_tblPokemonTeam_PokemonId.sql" />
     <Build Include="Tables\tblMajorStatus.sql" />
+    <Build Include="ForeignKeys\fk_tblPokedex_Type2Id.sql" />
+    <Build Include="ForeignKeys\fk_tblPokedex_Type1Id.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SIP.PokemonProject.DB.refactorlog" />
