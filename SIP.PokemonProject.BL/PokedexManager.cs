@@ -34,6 +34,7 @@ namespace SIP.PokemonProject.BL
                 BaseSpeed = pd.BaseSpeed,
                 SpritePath = pd.SpriteName
             }));
+            speciesList = speciesList.OrderBy(pd => pd.PokedexNum).ToList();
             return speciesList;
         }
 
