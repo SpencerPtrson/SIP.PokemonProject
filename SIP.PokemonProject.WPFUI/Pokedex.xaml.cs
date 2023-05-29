@@ -54,7 +54,16 @@ namespace SIP.PokemonProject.WPFUI
                 dgPokedex.Columns[11].Visibility = Visibility.Hidden;
 
                 // Change column headings
+                dgPokedex.Columns[1].Header = "#";
                 dgPokedex.Columns[2].Header = "Species";
+                dgPokedex.Columns[4].Header = "Base HP";
+                dgPokedex.Columns[5].Header = "Base Atk";
+                dgPokedex.Columns[6].Header = "Base Def";
+                dgPokedex.Columns[7].Header = "Base Sp. Atk";
+                dgPokedex.Columns[8].Header = "Base Sp. Def";
+                dgPokedex.Columns[9].Header = "Base Spd";
+
+
                 dgPokedex.Columns[12].Header = "Type 1";
                 dgPokedex.Columns[13].Header = "Type 2";
 
