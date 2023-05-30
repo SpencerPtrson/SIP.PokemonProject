@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SIP.PokemonProject.PL;
 
-public partial class tblItem
+public partial class tblItem : IEntity
 {
     public Guid Id { get; set; }
 
