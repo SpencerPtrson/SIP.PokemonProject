@@ -1,23 +1,5 @@
 ﻿namespace SIP.PokemonProject.BL.Models
 {
-    public struct StatChanges
-    {
-        public const double Neg6 = 1 / 4;
-        public const double Neg5 = 2 / 7;
-        public const double Neg4 = 1 / 3;
-        public const double Neg3 = 2 / 5;
-        public const double Neg2 = 1 / 2;
-        public const double Neg1 = 2 / 3;
-        public const double Neutral = 0;
-        public const double Pos1 = 3 / 2;
-        public const double Pos2 = 2;
-        public const double Pos3 = 5 / 2;
-        public const double Pos4 = 3;
-        public const double Pos5 = 7 / 2;
-        public const double Pos6 = 4;
-    }
-
-
     public class Pokemon
     {
         public Guid Id { get; set; }

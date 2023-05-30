@@ -62,11 +62,8 @@ namespace SIP.PokemonProject.WPFUI
                 dgPokedex.Columns[7].Header = "Base Sp. Atk";
                 dgPokedex.Columns[8].Header = "Base Sp. Def";
                 dgPokedex.Columns[9].Header = "Base Spd";
-
-
                 dgPokedex.Columns[12].Header = "Type 1";
                 dgPokedex.Columns[13].Header = "Type 2";
-
 
                 // Change the font property of the column headers
                 Style headerStyle = new Style();

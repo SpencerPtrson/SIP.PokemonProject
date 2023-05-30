@@ -15,6 +15,14 @@ namespace SIP.PokemonProject.BL.Test
         }
 
         [Test]
+        public async Task LoadByIdTest()
+        {
+            List<Nature> natures = await new NatureManager().Load();
+            Nature loadedNature = await new NatureManager().LoadById(natures[0].Id);
+            Assert.AreEqual(natures[0].Name, loadedNature.Name);
+        }
+
+        [Test]
         public async Task LoadByNatureNameTest()
         {
             Nature nature = await new NatureManager().LoadByNatureName("Adamant");
