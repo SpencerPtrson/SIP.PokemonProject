@@ -11,7 +11,7 @@ namespace SIP.PokemonProject.BL.Test
         {
             var task = await new PokedexManager().Load();
             IEnumerable<PokedexData> pokedexList = task;
-            Assert.AreEqual(3, pokedexList.ToList().Count);
+            Assert.AreEqual(4, pokedexList.ToList().Count);
         }
 
         [Test]
@@ -50,7 +50,8 @@ namespace SIP.PokemonProject.BL.Test
                 BaseSpecialAttack = 1,
                 BaseSpecialDefense = 1,
                 BaseSpeed = 1,
-                SpritePath = "Test Sprite"
+                SpritePath = "Test Sprite",
+                FlavorText = "Test"
             }, true);
             Assert.IsTrue(results > 0);
         }
@@ -85,7 +86,8 @@ namespace SIP.PokemonProject.BL.Test
                 BaseSpecialAttack = 1,
                 BaseSpecialDefense = 1,
                 BaseSpeed = 1,
-                SpritePath = "Test Sprite"
+                SpritePath = "Test Sprite",
+                FlavorText = "Test"
             }, false);
 
             var task = await new PokedexManager().Load();

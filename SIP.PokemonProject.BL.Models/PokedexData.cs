@@ -24,5 +24,7 @@ namespace SIP.PokemonProject.BL.Models
         public string Type1Name { get; set; }
         [DisplayName("Type 2")]
         public string Type2Name { get; set;}
+
+        public string FlavorText { get; set; }
     }
 }

@@ -70,4 +70,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Type2Id" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="4b59f87b-964d-451a-9ce3-5500e5a3433a" ChangeDateTime="06/01/2023 23:26:06">
+    <Property Name="ElementName" Value="[dbo].[tblPokedex].[DataEntry]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblPokedex]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FlavorText" />
+  </Operation>
 </Operations>

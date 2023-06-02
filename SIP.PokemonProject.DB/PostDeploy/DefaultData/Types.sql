@@ -19,5 +19,5 @@
 	(NEWID(), 'Dragon', 'dragon icon'),
 	(NEWID(), 'Steel', 'steel icon'),
 	(NEWID(), 'Fairy', 'fairy icon'),
-	(NEWID(), 'Typeless', 'typeless icon')
+	(NEWID(), 'None', 'typeless icon')
 END

@@ -39,18 +39,23 @@ public partial class PokemonEntities : DbContext
 
     public virtual DbSet<tblType> tblTypes { get; set; }
 
+//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+//        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SIP.PokemonProject.DB;Integrated Security=true");
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        // optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SIP.VehicleTracker.DB;Integrated Security=true");
         optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SIP.PokemonProject.DB;Integrated Security=true");
         optionsBuilder.UseLazyLoadingProxies();
     }
-    // #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<tblAbility>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblAbili__3214EC075D09A386");
+            entity.HasKey(e => e.Id).HasName("PK__tblAbili__3214EC07A7F92CE5");
 
             entity.ToTable("tblAbility");
 
@@ -65,7 +70,7 @@ public partial class PokemonEntities : DbContext
 
         modelBuilder.Entity<tblAddedAffect>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblAdded__3214EC079207C527");
+            entity.HasKey(e => e.Id).HasName("PK__tblAdded__3214EC07B5AE2756");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Effect)
@@ -75,7 +80,7 @@ public partial class PokemonEntities : DbContext
 
         modelBuilder.Entity<tblItem>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblItem__3214EC07882DAE18");
+            entity.HasKey(e => e.Id).HasName("PK__tblItem__3214EC07BAAAB84E");
 
             entity.ToTable("tblItem");
 
@@ -90,7 +95,7 @@ public partial class PokemonEntities : DbContext
 
         modelBuilder.Entity<tblMajorStatus>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblMajor__3214EC07C83122F5");
+            entity.HasKey(e => e.Id).HasName("PK__tblMajor__3214EC0716CD32BF");
 
             entity.ToTable("tblMajorStatus");
 
@@ -103,7 +108,7 @@ public partial class PokemonEntities : DbContext
 
         modelBuilder.Entity<tblMove>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblMove__3214EC07CC28CF2A");
+            entity.HasKey(e => e.Id).HasName("PK__tblMove__3214EC07BB8EF18C");
 
             entity.ToTable("tblMove");
 
@@ -129,7 +134,7 @@ public partial class PokemonEntities : DbContext
 
         modelBuilder.Entity<tblNature>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblNatur__3214EC07B8075370");
+            entity.HasKey(e => e.Id).HasName("PK__tblNatur__3214EC07600901DF");
 
             entity.ToTable("tblNature");
 
@@ -147,11 +152,14 @@ public partial class PokemonEntities : DbContext
 
         modelBuilder.Entity<tblPokedex>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblPoked__3214EC077331EE46");
+            entity.HasKey(e => e.Id).HasName("PK__tblPoked__3214EC07B0D35DA3");
 
             entity.ToTable("tblPokedex");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.FlavorText)
+                .HasMaxLength(400)
+                .IsUnicode(false);
             entity.Property(e => e.SpeciesName)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -172,7 +180,7 @@ public partial class PokemonEntities : DbContext
 
         modelBuilder.Entity<tblPokemon>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblPokem__3214EC079E7EF408");
+            entity.HasKey(e => e.Id).HasName("PK__tblPokem__3214EC07A97FB92E");
 
             entity.ToTable("tblPokemon");
 
@@ -213,7 +221,7 @@ public partial class PokemonEntities : DbContext
 
         modelBuilder.Entity<tblPokemonTeam>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblPokem__3214EC0763838CA5");
+            entity.HasKey(e => e.Id).HasName("PK__tblPokem__3214EC0776FEBA5E");
 
             entity.ToTable("tblPokemonTeam");
 
@@ -232,7 +240,7 @@ public partial class PokemonEntities : DbContext
 
         modelBuilder.Entity<tblSpeciesAbility>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblSpeci__3214EC079C49C5DF");
+            entity.HasKey(e => e.Id).HasName("PK__tblSpeci__3214EC079103E916");
 
             entity.ToTable("tblSpeciesAbility");
 
@@ -241,7 +249,7 @@ public partial class PokemonEntities : DbContext
 
         modelBuilder.Entity<tblTrainer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblTrain__3214EC076BF33CED");
+            entity.HasKey(e => e.Id).HasName("PK__tblTrain__3214EC07B7550DE8");
 
             entity.ToTable("tblTrainer");
 
@@ -253,7 +261,7 @@ public partial class PokemonEntities : DbContext
 
         modelBuilder.Entity<tblType>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__tblType__3214EC077F2BD52F");
+            entity.HasKey(e => e.Id).HasName("PK__tblType__3214EC07E976A9CF");
 
             entity.ToTable("tblType");
 

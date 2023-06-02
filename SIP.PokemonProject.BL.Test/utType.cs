@@ -45,9 +45,15 @@ namespace SIP.PokemonProject.BL.Test
         [Test]
         public async Task DeleteTest()
         {
+            Models.Type testType = new Models.Type
+            {
+                TypeName = "Test"
+            };
+
+            await new TypeManager().Insert(testType, false);
+
             IEnumerable<Models.Type> types = await new TypeManager().Load();
-            Models.Type type = types.FirstOrDefault();
-            int results = await new TypeManager().Delete(type.Id, true);
+            int results = await new TypeManager().Delete(testType.Id, false);
             Assert.IsTrue(results > 0);
         }
     }

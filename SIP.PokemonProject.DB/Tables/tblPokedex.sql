@@ -11,6 +11,6 @@
     [BaseSpecialAttack] INT NOT NULL,
     [BaseSpecialDefense] INT NOT NULL, 
     [BaseSpeed] INT NOT NULL, 
-    [SpriteName] VARCHAR(50) NOT NULL,
-
+    [SpriteName] VARCHAR(50) NOT NULL, 
+    [FlavorText] VARCHAR(400) NOT NULL,
 )
