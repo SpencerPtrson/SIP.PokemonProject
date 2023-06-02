@@ -23,16 +23,13 @@ namespace SIP.PokemonProject.WPFUI
     /// </summary>
     public partial class Pokedex : Window
     {
-        List<Pokedex> pokedexData = new List<Pokedex>();
+        IEnumerable<PokedexData> speciesList;
 
-        public Pokedex()
-        {
+        public Pokedex() {
             InitializeComponent();
-            pokedexData = new List<Pokedex>();
         }
 
-        private void btnLoadPokedex_Click(object sender, RoutedEventArgs e)
-        {
+        private void btnLoadPokedex_Click(object sender, RoutedEventArgs e) {
             Reload();
         }
 
@@ -41,10 +38,10 @@ namespace SIP.PokemonProject.WPFUI
         private async void Reload() {
             try {
                 var task = await new PokedexManager().Load();
-                IEnumerable<PokedexData> data = task;
+                speciesList = task;
 
                 dgPokedex.ItemsSource = null;
-                dgPokedex.ItemsSource = data;
+                dgPokedex.ItemsSource = speciesList;
 
                 // Hide Guid columns
                 dgPokedex.Columns[0].Visibility = Visibility.Hidden;
@@ -84,11 +81,14 @@ namespace SIP.PokemonProject.WPFUI
             catch (Exception ex) { throw; }
         }
 
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-            MaintainPokemonSpecies maintainPokemonSpecies = new MaintainPokemonSpecies();
-            maintainPokemonSpecies.Owner = this;
-            maintainPokemonSpecies.ShowDialog();
+        private void btnEdit_Click(object sender, RoutedEventArgs e) {
+            try {
+                if (dgPokedex.SelectedIndex > -1) {
+                    PokedexData species = speciesList.ElementAt(dgPokedex.SelectedIndex); 
+                    new MaintainPokemonSpecies(species).ShowDialog();
+                }
+            }
+            catch (Exception ex) { throw; }
         }
     }
 }

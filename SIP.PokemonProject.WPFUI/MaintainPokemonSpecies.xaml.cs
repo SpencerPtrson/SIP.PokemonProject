@@ -24,12 +24,45 @@ namespace SIP.PokemonProject.WPFUI
     /// </summary>
     public partial class MaintainPokemonSpecies : Window
     {
-        List<Pokedex> pokedexData = new List<Pokedex>();
+        PokedexData species;
+        bool isNewSpecies = false;
 
-        public MaintainPokemonSpecies()
+        public MaintainPokemonSpecies(PokedexData species)
         {
             InitializeComponent();
-            pokedexData = new List<Pokedex>();
+            this.species = species;
+
+            if (species.SpeciesId.Equals(Guid.Empty)) {
+                // New Species
+                isNewSpecies = true;
+                this.Title = "New Species";
+            }
+            else {
+                isNewSpecies = false;
+                this.Title = "Edit Species";
+            }
+
+            btnInsert.IsEnabled = isNewSpecies;
+            btnUpdate.IsEnabled = !isNewSpecies;
+            btnDelete.IsEnabled = isNewSpecies;
+
+            DrawScreen();
+        }
+
+        private void DrawScreen() {
+            // Populate fields
+            // Needs Custom Controls for Type / SpeciesName
+            try
+            {
+                txtBaseHp.Text = species.BaseHP.ToString();
+                txtBaseAttack.Text = species.BaseAttack.ToString();
+                txtBaseDefense.Text = species.BaseDefense.ToString();
+                txtBaseSpecialAttack.Text = species.BaseSpecialAttack.ToString();
+                txtBaseSpecialDefense.Text = species.BaseSpecialDefense.ToString();
+                txtBaseSpeed.Text = species.BaseSpeed.ToString();
+                txtPokedexEntry.Text = species.FlavorText.ToString();
+            }
+            catch { }
         }
 
         private void btnLoadPokedex_Click(object sender, RoutedEventArgs e)

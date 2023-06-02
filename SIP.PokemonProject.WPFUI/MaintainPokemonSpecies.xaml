@@ -22,9 +22,9 @@
         <Label x:Name="lblPokedexEntry" Content="Pokedex Text:" HorizontalAlignment="Left" Margin="2,120,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
         <TextBox x:Name="txtPokedexEntry" HorizontalAlignment="Left" Margin="90,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="50"/>
 
-        <Label x:Name="lblBaseHP" Content="Base HP:" HorizontalAlignment="Left" Margin="26,179,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
+        <Label x:Name="lblBaseHP" Content="Base HP:" HorizontalAlignment="Left" Margin="29,179,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
         <TextBox x:Name="txtBaseHp" HorizontalAlignment="Left" Margin="90,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"/>
-        <Label x:Name="lblBaseSpeed" Content="Base Speed:" HorizontalAlignment="Left" Margin="136,179,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
+        <Label x:Name="lblBaseSpeed" Content="Base Speed:" HorizontalAlignment="Left" Margin="132,179,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
         <TextBox x:Name="txtBaseSpeed" HorizontalAlignment="Left" Margin="210,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"/>
         <Label x:Name="lblBaseAttack" Content="Base Atk:" HorizontalAlignment="Left" Margin="26,208,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
         <TextBox x:Name="txtBaseAttack" HorizontalAlignment="Left" Margin="90,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"/>
