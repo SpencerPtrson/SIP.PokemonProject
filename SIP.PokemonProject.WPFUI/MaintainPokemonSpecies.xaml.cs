@@ -54,6 +54,7 @@ namespace SIP.PokemonProject.WPFUI
             // Needs Custom Controls for Type / SpeciesName
             try
             {
+                txtSpeciesName.Text = species.SpeciesName.ToString();
                 txtBaseHp.Text = species.BaseHP.ToString();
                 txtBaseAttack.Text = species.BaseAttack.ToString();
                 txtBaseDefense.Text = species.BaseDefense.ToString();

@@ -14,7 +14,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Label x:Name="lblSpecies" Content="Species:" HorizontalAlignment="Left" Margin="36,30,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56"/>
-        <ComboBox x:Name="cboSpeciesSelection" HorizontalAlignment="Left" Margin="90,30,0,0" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="txtSpeciesName" HorizontalAlignment="Left" Margin="90,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="24"/>
         <Label x:Name="lblType1" Content="Type 1:" HorizontalAlignment="Left" Margin="36,60,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
         <ComboBox x:Name="cboType1" HorizontalAlignment="Left" Margin="90,60,0,0" VerticalAlignment="Top" Width="120" />
         <Label x:Name="lblType2" Content="Type 2:" HorizontalAlignment="Left" Margin="36,90,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
@@ -23,17 +23,17 @@
         <TextBox x:Name="txtPokedexEntry" HorizontalAlignment="Left" Margin="90,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="50"/>
 
         <Label x:Name="lblBaseHP" Content="Base HP:" HorizontalAlignment="Left" Margin="29,179,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
-        <TextBox x:Name="txtBaseHp" HorizontalAlignment="Left" Margin="90,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"/>
+        <TextBox x:Name="txtBaseHp" HorizontalAlignment="Left" Margin="90,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="lblBaseSpeed" Content="Base Speed:" HorizontalAlignment="Left" Margin="132,179,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
-        <TextBox x:Name="txtBaseSpeed" HorizontalAlignment="Left" Margin="210,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"/>
+        <TextBox x:Name="txtBaseSpeed" HorizontalAlignment="Left" Margin="210,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="34" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="lblBaseAttack" Content="Base Atk:" HorizontalAlignment="Left" Margin="26,208,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
-        <TextBox x:Name="txtBaseAttack" HorizontalAlignment="Left" Margin="90,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"/>
+        <TextBox x:Name="txtBaseAttack" HorizontalAlignment="Left" Margin="90,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="lblBaseDefense" Content="Base Def:" HorizontalAlignment="Left" Margin="146,208,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
-        <TextBox x:Name="txtBaseDefense" HorizontalAlignment="Left" Margin="210,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"/>
+        <TextBox x:Name="txtBaseDefense" HorizontalAlignment="Left" Margin="210,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="lblBaseSpecialAttack" Content="Base Sp. Atk:" HorizontalAlignment="Left" Margin="8,237,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
-        <TextBox x:Name="txtBaseSpecialAttack" HorizontalAlignment="Left" Margin="90,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"/>
+        <TextBox x:Name="txtBaseSpecialAttack" HorizontalAlignment="Left" Margin="90,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="lblBaseSpecialDefense" Content="Base Sp. Def:" HorizontalAlignment="Left" Margin="127,237,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24"/>
-        <TextBox x:Name="txtBaseSpecialDefense" HorizontalAlignment="Left" Margin="210,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"/>
+        <TextBox x:Name="txtBaseSpecialDefense" HorizontalAlignment="Left" Margin="210,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Height="24" PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
         <Label x:Name="lblSpriteSelection" Content="SPRITE SELECTION NOT IMPLEMENTED" HorizontalAlignment="Left" Margin="55,291,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="25" Width="217"/>
 
