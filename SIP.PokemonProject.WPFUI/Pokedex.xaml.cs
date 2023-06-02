@@ -38,10 +38,8 @@ namespace SIP.PokemonProject.WPFUI
 
 
         // Reset data grid data source
-        private async void Reload()
-        {
-            try
-            {
+        private async void Reload() {
+            try {
                 var task = await new PokedexManager().Load();
                 IEnumerable<PokedexData> data = task;
 
@@ -65,26 +63,32 @@ namespace SIP.PokemonProject.WPFUI
                 dgPokedex.Columns[12].Header = "Type 1";
                 dgPokedex.Columns[13].Header = "Type 2";
 
-                // Change the font property of the column headers
-                Style headerStyle = new Style();
-                DataGridColumnHeader header = new DataGridColumnHeader();
-                headerStyle.TargetType = header.GetType();
+                //// Change the font property of the column headers
+                //Style headerStyle = new Style();
+                //DataGridColumnHeader header = new DataGridColumnHeader();
+                //headerStyle.TargetType = header.GetType();
 
-                Setter setter = new Setter();
-                setter.Property = FontSizeProperty;
-                setter.Value = 14.0;
+                //Setter setter = new Setter();
+                //setter.Property = FontSizeProperty;
+                //setter.Value = 14.0;
 
-                headerStyle.Setters.Add(setter);
-                headerStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = Brushes.LightYellow });
-                headerStyle.Setters.Add(new Setter { Property = Control.FontFamilyProperty, Value = new FontFamily("Verdana") });
-                headerStyle.Setters.Add(new Setter { Property = Control.FontWeightProperty, Value = FontWeights.Bold });
-                headerStyle.Setters.Add(new Setter { Property = Control.FontStyleProperty, Value = FontStyles.Italic });
-                headerStyle.Setters.Add(new Setter { Property = Control.BorderThicknessProperty, Value = new Thickness(1) });
-                headerStyle.Setters.Add(new Setter { Property = Control.BorderBrushProperty, Value = Brushes.Black });
-                headerStyle.Setters.Add(new Setter { Property = Control.HorizontalContentAlignmentProperty, Value = HorizontalAlignment.Center });
-
+                //headerStyle.Setters.Add(setter);
+                //headerStyle.Setters.Add(new Setter { Property = Control.BackgroundProperty, Value = Brushes.LightYellow });
+                //headerStyle.Setters.Add(new Setter { Property = Control.FontFamilyProperty, Value = new FontFamily("Verdana") });
+                //headerStyle.Setters.Add(new Setter { Property = Control.FontWeightProperty, Value = FontWeights.Bold });
+                //headerStyle.Setters.Add(new Setter { Property = Control.FontStyleProperty, Value = FontStyles.Italic });
+                //headerStyle.Setters.Add(new Setter { Property = Control.BorderThicknessProperty, Value = new Thickness(1) });
+                //headerStyle.Setters.Add(new Setter { Property = Control.BorderBrushProperty, Value = Brushes.Black });
+                //headerStyle.Setters.Add(new Setter { Property = Control.HorizontalContentAlignmentProperty, Value = HorizontalAlignment.Center });
             }
             catch (Exception ex) { throw; }
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            MaintainPokemonSpecies maintainPokemonSpecies = new MaintainPokemonSpecies();
+            maintainPokemonSpecies.Owner = this;
+            maintainPokemonSpecies.ShowDialog();
         }
     }
 }
