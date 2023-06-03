@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIP.PokemonProject.WPFUI"
         mc:Ignorable="d"
-        Title="Pokedex" Height="450" Width="800" Loaded="btnLoadPokedex_Click">
+        Title="Pokedex" Height="450" Width="800" Loaded="btnLoadPokedex_Click" ResizeMode="CanMinimize">
     <Grid x:Name="grdPokedex">
         <Grid.RowDefinitions>
-            <RowDefinition Height="229*"/>
-            <RowDefinition Height="205*"/>
+            <RowDefinition Height="240"/>
+            <RowDefinition Height="205"/>
         </Grid.RowDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -17,8 +17,8 @@
                 <GradientStop Color="#FFE05252" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <DataGrid x:Name="dgPokedex" Margin="50,10,50,0" Width="700" Height="350" VerticalAlignment="Top" Grid.RowSpan="2" CanUserAddRows="False" CanUserDeleteRows="False"/>
-        <Button x:Name="btnLoadPokedex" Content="Load Pokedex" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Height="27" Width="100" Click="btnLoadPokedex_Click" Grid.Row="1" />
-        <Button x:Name="btnEdit" Content="Edit Species" HorizontalAlignment="Left" Margin="115,141,0,0" VerticalAlignment="Top" Height="27" Width="100" Click="btnEdit_Click" Grid.Row="1" />
+        <DataGrid x:Name="dgPokedex" Margin="50,10,0,0" Width="700" Grid.RowSpan="2" CanUserAddRows="False" CanUserDeleteRows="False" Height="350" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="btnLoadPokedex" Content="Load Pokedex" Click="btnLoadPokedex_Click" Margin="50,131,0,0" Grid.Row="1" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" />
+        <Button x:Name="btnEdit" Content="Edit Species" Click="btnEdit_Click" Margin="150,131,0,0" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" />
     </Grid>
 </Window>

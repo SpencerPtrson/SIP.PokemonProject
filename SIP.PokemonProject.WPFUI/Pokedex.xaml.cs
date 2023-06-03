@@ -86,6 +86,7 @@ namespace SIP.PokemonProject.WPFUI
                 if (dgPokedex.SelectedIndex > -1) {
                     PokedexData species = speciesList.ElementAt(dgPokedex.SelectedIndex); 
                     new MaintainPokemonSpecies(species).ShowDialog();
+                    Reload();
                 }
             }
             catch (Exception ex) { throw; }
