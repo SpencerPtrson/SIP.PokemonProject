@@ -99,5 +99,9 @@ namespace SIP.PokemonProject.BL
             }
             catch (Exception) { throw; }
         }
+
+        public void ManageTypeEffectiveness(Models.Type attackingType, Models.Type defendingType1, Models.Type defendingType2) {
+
+        }
     }
 }
