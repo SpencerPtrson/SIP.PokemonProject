@@ -115,7 +115,7 @@
     <None Include="PostDeploy\DefaultData\Abilities.sql" />
     <None Include="PostDeploy\DefaultData\Pokemon.sql" />
     <None Include="PostDeploy\DefaultData\PokemonTeams.sql" />
-    <None Include="local.publish.xml" />
     <None Include="PostDeploy\DefaultData\Moves.sql" />
+    <None Include="local.publish.xml" />
   </ItemGroup>
 </Project>

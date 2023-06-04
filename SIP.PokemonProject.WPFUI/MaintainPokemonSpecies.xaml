@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIP.PokemonProject.WPFUI"
         mc:Ignorable="d"
-        Title="Maintain Species Attributes" Height="450" Width="375" ResizeMode="CanMinimize">
+        Title="Maintain Species Attributes" Height="450" Width="400" ResizeMode="CanMinimize">
     <Grid x:Name="grdSpecies" Margin="0,0,0,-36">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -13,40 +13,40 @@
                 <GradientStop Color="#FFE05252" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label x:Name="lblSpecies" Margin="36,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Content="Species:"/>
-        <TextBox x:Name="txtSpeciesName" Margin="90,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"  Width="120" Height="24" 
+        <Label x:Name="lblSpecies" Margin="57,19,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Content="Species:"/>
+        <TextBox x:Name="txtSpeciesName" Margin="111,19,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"  Width="120" Height="24" 
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        
-        <Label x:Name="lblPokedexEntry" Margin="2,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Pokedex Text:"/>
-        <TextBox x:Name="txtPokedexEntry" Margin="90,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"  Width="250" Height="50"/>
 
-        <Label x:Name="lblBaseHP" Margin="29,179,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"  Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Base HP:"/>
-        <TextBox x:Name="txtBaseHP" Margin="90,179,0,0" HorizontalAlignment="Left"  VerticalAlignment="Top" TextWrapping="Wrap" Height="24" Width="35"
+        <Label x:Name="lblPokedexEntry" Margin="22,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Pokedex Text:"/>
+        <TextBox x:Name="txtPokedexEntry" Margin="110,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"  Width="250" Height="50"/>
+
+        <Label x:Name="lblBaseHP" Margin="49,189,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"  Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Base HP:"/>
+        <TextBox x:Name="txtBaseHP" Margin="110,189,0,0" HorizontalAlignment="Left"  VerticalAlignment="Top" TextWrapping="Wrap" Height="24" Width="35"
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                  PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric" />
-        
-        <Label x:Name="lblBaseSpeed" Margin="132,179,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24" Content="Base Speed:"/>
-        <TextBox x:Name="txtBaseSpeed" Margin="210,179,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Width="34" Height="24" 
+
+        <Label x:Name="lblBaseSpeed" Margin="0,189,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="-0.127,-0.56" Height="24" Content="Base Speed:"/>
+        <TextBox x:Name="txtBaseSpeed" Margin="230,189,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Width="34" Height="24" 
                  PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric" 
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        
-        <Label x:Name="lblBaseAttack" Margin="26,208,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Base Atk:"/>
-        <TextBox x:Name="txtBaseAttack" Margin="90,208,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Height="24" Width="35"  
-                 PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"
-                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        
-        <Label x:Name="lblBaseDefense" Margin="146,208,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Base Def:"/>
-        <TextBox x:Name="txtBaseDefense" Margin="210,208,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Height="24" Width="35" 
-                 PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric" 
-                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        
-        <Label x:Name="lblBaseSpecialAttack" Margin="8,237,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Base Sp. Atk:"/>
-        <TextBox x:Name="txtBaseSpecialAttack" Margin="90,237,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Height="24" Width="35"
+
+        <Label x:Name="lblBaseAttack" Margin="46,218,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Base Atk:"/>
+        <TextBox x:Name="txtBaseAttack" Margin="110,218,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Height="24" Width="35"  
                  PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-        <Label x:Name="lblBaseSpecialDefense" Margin="127,237,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Base Sp. Def:"/>
-        <TextBox x:Name="txtBaseSpecialDefense" Margin="210,237,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Height="24" Width="35"
+        <Label x:Name="lblBaseDefense" Margin="166,218,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Base Def:"/>
+        <TextBox x:Name="txtBaseDefense" Margin="230,218,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Height="24" Width="35" 
+                 PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric" 
+                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+        <Label x:Name="lblBaseSpecialAttack" Margin="28,247,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Base Sp. Atk:"/>
+        <TextBox x:Name="txtBaseSpecialAttack" Margin="110,247,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Height="24" Width="35"
+                 PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"
+                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+        <Label x:Name="lblBaseSpecialDefense" Margin="147,247,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Height="24" RenderTransformOrigin="-0.127,-0.56" Content="Base Sp. Def:"/>
+        <TextBox x:Name="txtBaseSpecialDefense" Margin="230,247,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Height="24" Width="35"
                  PreviewTextInput="txtStatNumeric" DataObject.Pasting="txtConfirmStatNumeric"
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 

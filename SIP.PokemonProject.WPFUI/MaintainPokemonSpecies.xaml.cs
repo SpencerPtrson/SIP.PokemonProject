@@ -27,12 +27,14 @@ namespace SIP.PokemonProject.WPFUI
     public partial class MaintainPokemonSpecies : Window
     {
         PokedexData species;
+        int speciesCount;
         bool isNewSpecies = false;
         ucMaintainSpecies[] ucTypes = new ucMaintainSpecies[2];
 
-        public MaintainPokemonSpecies(PokedexData species) {
+        public MaintainPokemonSpecies(PokedexData species, int SpeciesCount) {
             InitializeComponent();
             this.species = species;
+            speciesCount = SpeciesCount;
 
             if (species.SpeciesId.Equals(Guid.Empty)) {
                 // New Species
@@ -54,49 +56,56 @@ namespace SIP.PokemonProject.WPFUI
         private void DrawScreen() {
             // Populate fields
             try {
-                ucMaintainSpecies ucPrimaryType = new ucMaintainSpecies(ControlMode.PrimaryType, species.Type1Id);
-                ucMaintainSpecies ucSecondaryType = new ucMaintainSpecies(ControlMode.SecondaryType, species.Type2Id);
+                // Always create controls, but only set default value if it's not a new species
+                ucMaintainSpecies ucPrimaryType;
+                ucMaintainSpecies ucSecondaryType;
+
+                if (!isNewSpecies) {
+                    ucPrimaryType = new ucMaintainSpecies(ControlMode.PrimaryType, species.Type1Id);
+                    ucSecondaryType = new ucMaintainSpecies(ControlMode.SecondaryType, species.Type2Id);
+                    txtSpeciesName.Text = species.SpeciesName.ToString();
+                    txtBaseHP.Text = species.BaseHP.ToString();
+                    txtBaseAttack.Text = species.BaseAttack.ToString();
+                    txtBaseDefense.Text = species.BaseDefense.ToString();
+                    txtBaseSpecialAttack.Text = species.BaseSpecialAttack.ToString();
+                    txtBaseSpecialDefense.Text = species.BaseSpecialDefense.ToString();
+                    txtBaseSpeed.Text = species.BaseSpeed.ToString();
+                    txtPokedexEntry.Text = species.FlavorText.ToString();
+                }
+                else {
+                    ucPrimaryType = new ucMaintainSpecies(ControlMode.PrimaryType, new Guid());
+                    ucSecondaryType = new ucMaintainSpecies(ControlMode.SecondaryType, new Guid());
+                }
+
                 ucPrimaryType.Margin = new Thickness(20, 60, 0, 0);
                 ucSecondaryType.Margin = new Thickness(20, 90, 0, 0);
                 grdSpecies.Children.Add(ucPrimaryType);
                 grdSpecies.Children.Add(ucSecondaryType);
                 ucTypes[0] = ucPrimaryType;
                 ucTypes[1] = ucSecondaryType;
-
-                txtSpeciesName.Text = species.SpeciesName.ToString();
-                txtBaseHP.Text = species.BaseHP.ToString();
-                txtBaseAttack.Text = species.BaseAttack.ToString();
-                txtBaseDefense.Text = species.BaseDefense.ToString();
-                txtBaseSpecialAttack.Text = species.BaseSpecialAttack.ToString();
-                txtBaseSpecialDefense.Text = species.BaseSpecialDefense.ToString();
-                txtBaseSpeed.Text = species.BaseSpeed.ToString();
-                txtPokedexEntry.Text = species.FlavorText.ToString();
             }
             catch (Exception ex) { throw ex; }
         }
 
-        private void btnInsert_Click(object sender, RoutedEventArgs e) {
-
+        private async void btnInsert_Click(object sender, RoutedEventArgs e) {
+            if(ValidateFields())
+            {
+                SetValues();
+                int results = 0;
+                Task.Run(async () => { results = await new PokedexManager().Insert(species); });
+                MessageBox.Show(results.ToString());
+                speciesCount++;
+            }
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e) {
             // Check stats to ensure they're greater than 0
-            if (String.IsNullOrEmpty(txtPokedexEntry.Text) ||
-                String.IsNullOrEmpty(txtSpeciesName.Text) ||
-                String.IsNullOrEmpty(txtBaseHP.Text) ||
-                String.IsNullOrEmpty(txtBaseAttack.Text) ||
-                String.IsNullOrEmpty(txtBaseDefense.Text) ||
-                String.IsNullOrEmpty(txtBaseSpecialAttack.Text) ||
-                String.IsNullOrEmpty(txtBaseSpecialDefense.Text) ||
-                String.IsNullOrEmpty(txtBaseSpeed.Text)) 
+            if(ValidateFields())
             {
-                lblStatus.Content = "A valid entry is required for all fields";
-                return;
+                SetValues();
+                Task.Run(async () => { await new PokedexManager().Update(species); });
+                lblStatus.Content = species.SpeciesName + " has been updated.";
             }
-            SetValues();
-            Task.Run(async () => { await new PokedexManager().Update(species); });
-            lblStatus.Content = species.SpeciesName + " has been updated.";
-
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e) {
@@ -104,7 +113,7 @@ namespace SIP.PokemonProject.WPFUI
         }
 
         // Reset data grid data source
-        private void SetValues()
+        private async void SetValues()
         {
             try {
                 Debug.WriteLine("ControlMode Value: " + ControlMode.PrimaryType);
@@ -123,9 +132,31 @@ namespace SIP.PokemonProject.WPFUI
                 species.BaseSpecialAttack = int.Parse(txtBaseSpecialAttack.Text);
                 species.BaseSpecialDefense = int.Parse(txtBaseSpecialDefense.Text);
                 species.BaseSpeed = int.Parse(txtBaseSpeed.Text);
+
+                species.SpritePath = "Not Implemented";
+                if (isNewSpecies) { species.PokedexNum = speciesCount + 1; }
             }
             catch (Exception ex) { throw ex; }
         }
+
+        private bool ValidateFields() {
+            if (String.IsNullOrEmpty(txtPokedexEntry.Text) ||
+                String.IsNullOrEmpty(txtSpeciesName.Text) ||
+                String.IsNullOrEmpty(txtBaseHP.Text) ||
+                String.IsNullOrEmpty(txtBaseAttack.Text) ||
+                String.IsNullOrEmpty(txtBaseDefense.Text) ||
+                String.IsNullOrEmpty(txtBaseSpecialAttack.Text) ||
+                String.IsNullOrEmpty(txtBaseSpecialDefense.Text) ||
+                String.IsNullOrEmpty(txtBaseSpeed.Text) ||
+                ucTypes[(int)ControlMode.PrimaryType].AttributeId == new Guid() ||
+                ucTypes[(int)ControlMode.SecondaryType].AttributeId == new Guid())
+            {
+                lblStatus.Content = "A valid entry is required for all fields";
+                return false;
+            }
+            else return true;
+        }
+
 
         // STAT ENTRY FIELD CONSTRAINTS
         // Limit Stats to Numeric inputs only

@@ -81,11 +81,19 @@ namespace SIP.PokemonProject.WPFUI
             catch (Exception ex) { throw; }
         }
 
+        private void btnAddSpecies_Click(object sender, EventArgs e) {
+            try {
+                PokedexData species = new PokedexData();
+                new MaintainPokemonSpecies(species, speciesList.Count()).Show();
+            } 
+            catch(Exception ex) { throw; }
+        }
+
         private void btnEdit_Click(object sender, RoutedEventArgs e) {
             try {
                 if (dgPokedex.SelectedIndex > -1) {
                     PokedexData species = speciesList.ElementAt(dgPokedex.SelectedIndex); 
-                    new MaintainPokemonSpecies(species).ShowDialog();
+                    new MaintainPokemonSpecies(species, speciesList.Count()).ShowDialog();
                     Reload();
                 }
             }
