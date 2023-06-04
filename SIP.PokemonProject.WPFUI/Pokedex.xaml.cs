@@ -84,7 +84,8 @@ namespace SIP.PokemonProject.WPFUI
         private void btnAddSpecies_Click(object sender, EventArgs e) {
             try {
                 PokedexData species = new PokedexData();
-                new MaintainPokemonSpecies(species, speciesList.Count()).Show();
+                new MaintainPokemonSpecies(species, speciesList.Count()).ShowDialog();
+                Reload();
             } 
             catch(Exception ex) { throw; }
         }

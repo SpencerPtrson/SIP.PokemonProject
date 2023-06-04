@@ -93,8 +93,8 @@ namespace SIP.PokemonProject.WPFUI
                 SetValues();
                 int results = 0;
                 Task.Run(async () => { results = await new PokedexManager().Insert(species); });
-                MessageBox.Show(results.ToString());
                 speciesCount++;
+                lblStatus.Content = species.SpeciesName + " has been added to the database";
             }
         }
 
