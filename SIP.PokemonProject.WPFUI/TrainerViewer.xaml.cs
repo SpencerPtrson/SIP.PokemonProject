@@ -19,17 +19,17 @@ using System.Windows.Shapes;
 namespace SIP.PokemonProject.WPFUI
 {
     /// <summary>
-    /// Interaction logic for Pokedex.xaml
+    /// Interaction logic for TrainerViewer.xaml
     /// </summary>
-    public partial class Pokedex : Window
+    public partial class TrainerViewer : Window
     {
-        IEnumerable<PokedexData> speciesList;
+        IEnumerable<Trainer> trainerList;
 
-        public Pokedex() {
+        public TrainerViewer() {
             InitializeComponent();
         }
 
-        private void btnLoadPokedex_Click(object sender, RoutedEventArgs e) {
+        private void btnLoadTrainers_Click(object sender, RoutedEventArgs e) {
             Reload();
         }
 
@@ -37,28 +37,28 @@ namespace SIP.PokemonProject.WPFUI
         // Reset data grid data source
         private async void Reload() {
             try {
-                var task = await new PokedexManager().Load();
-                speciesList = task;
+                var task = await new TrainerManager().Load();
+                trainerList = task;
 
-                dgPokedex.ItemsSource = null;
-                dgPokedex.ItemsSource = speciesList;
+                dgTrainerList.ItemsSource = null;
+                dgTrainerList.ItemsSource = trainerList;
 
                 // Hide Guid columns
-                dgPokedex.Columns[0].Visibility = Visibility.Hidden;
-                dgPokedex.Columns[10].Visibility = Visibility.Hidden;
-                dgPokedex.Columns[11].Visibility = Visibility.Hidden;
+                //dgTrainerList.Columns[0].Visibility = Visibility.Hidden;
+                //dgTrainerList.Columns[10].Visibility = Visibility.Hidden;
+                //dgTrainerList.Columns[11].Visibility = Visibility.Hidden;
 
                 // Change column headings
-                dgPokedex.Columns[1].Header = "#";
-                dgPokedex.Columns[2].Header = "Species";
-                dgPokedex.Columns[4].Header = "Base HP";
-                dgPokedex.Columns[5].Header = "Base Atk";
-                dgPokedex.Columns[6].Header = "Base Def";
-                dgPokedex.Columns[7].Header = "Base Sp. Atk";
-                dgPokedex.Columns[8].Header = "Base Sp. Def";
-                dgPokedex.Columns[9].Header = "Base Spd";
-                dgPokedex.Columns[12].Header = "Type 1";
-                dgPokedex.Columns[13].Header = "Type 2";
+                //dgTrainerList.Columns[1].Header = "#";
+                //dgTrainerList.Columns[2].Header = "Species";
+                //dgTrainerList.Columns[4].Header = "Base HP";
+                //dgTrainerList.Columns[5].Header = "Base Atk";
+                //dgTrainerList.Columns[6].Header = "Base Def";
+                //dgTrainerList.Columns[7].Header = "Base Sp. Atk";
+                //dgTrainerList.Columns[8].Header = "Base Sp. Def";
+                //dgTrainerList.Columns[9].Header = "Base Spd";
+                //dgTrainerList.Columns[12].Header = "Type 1";
+                //dgTrainerList.Columns[13].Header = "Type 2";
 
                 //// Change the font property of the column headers
                 //Style headerStyle = new Style();
@@ -81,10 +81,10 @@ namespace SIP.PokemonProject.WPFUI
             catch (Exception ex) { throw; }
         }
 
-        private void btnAddSpecies_Click(object sender, EventArgs e) {
+        private void btnAddTrainer_Click(object sender, EventArgs e) {
             try {
                 PokedexData species = new PokedexData();
-                new MaintainPokemonSpecies(species, speciesList.Count()).ShowDialog();
+                new MaintainPokemonSpecies(species, trainerList.Count()).ShowDialog();
                 Reload();
             } 
             catch(Exception ex) { throw; }
@@ -92,22 +92,11 @@ namespace SIP.PokemonProject.WPFUI
 
         private void btnEdit_Click(object sender, RoutedEventArgs e) {
             try {
-                if (dgPokedex.SelectedIndex > -1) {
-                    PokedexData species = speciesList.ElementAt(dgPokedex.SelectedIndex); 
-                    new MaintainPokemonSpecies(species, speciesList.Count()).ShowDialog();
+                if (dgTrainerList.SelectedIndex > -1) {
+                    Trainer trainer = trainerList.ElementAt(dgTrainerList.SelectedIndex); 
+                    // new MaintainTrainer(trainer, trainerList.Count()).ShowDialog();
                     Reload();
                 }
-            }
-            catch (Exception ex) { throw; }
-        }
-
-        private void btnViewTrainers_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                TrainerViewer trainerViewer = new TrainerViewer();
-                new TrainerViewer().Show();
-                this.Close();
             }
             catch (Exception ex) { throw; }
         }

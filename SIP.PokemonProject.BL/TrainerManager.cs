@@ -22,7 +22,6 @@ namespace SIP.PokemonProject.BL
                     Id = t.Id,
                     Name = t.Name,
                     Money = t.Money,
-                    Team = (List<Pokemon>)t.tblPokemonTeams.Where(m => m.TrainerId == t.Id)
                 }));
             return trainers;
         }

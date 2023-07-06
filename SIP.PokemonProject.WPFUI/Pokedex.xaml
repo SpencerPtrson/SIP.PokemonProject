@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIP.PokemonProject.WPFUI"
         mc:Ignorable="d"
-        Title="Pokedex" Height="450" Width="800" Loaded="btnLoadPokedex_Click" ResizeMode="CanMinimize">
+        Title="Pokedex" Height="450" Width="800" Loaded="btnLoadPokedex_Click" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
     <Grid x:Name="grdPokedex">
         <Grid.RowDefinitions>
             <RowDefinition Height="240"/>
@@ -21,5 +21,6 @@
         <Button x:Name="btnLoadPokedex" Content="Load Pokedex" Click="btnLoadPokedex_Click" Margin="50,131,0,0" Grid.Row="1" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" />
         <Button x:Name="btnAddSpecies" Content="New Species" Click="btnAddSpecies_Click" Margin="150,131,0,0" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" />
         <Button x:Name="btnEditSpecies" Content="Edit Species" Click="btnEdit_Click" Margin="250,131,0,0" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" />
+        <Button x:Name="btnViewTrainers" Content="View Trainers" Click="btnViewTrainers_Click" Margin="650,131,0,0" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" />
     </Grid>
 </Window>

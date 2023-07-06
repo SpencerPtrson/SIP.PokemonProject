@@ -12,7 +12,7 @@
         public bool IsShiny { get; set; }
         public string? Nickname { get; set; }
         public int Level { get; set; }
-        public string? MajorStatus { get; set; }
+        public Guid? MajorStatusId { get; set; }
 
         public List<Move> Moves { get; set; }
 

@@ -27,6 +27,8 @@ namespace SIP.PokemonProject.BL
                 TypeName = t.TypeName,
                 TypeIcon = t.TypeIcon
             }));
+            typeList = typeList.OrderBy(tl => tl.TypeName).ToList();
+
             return typeList;
         }
 
@@ -59,7 +61,6 @@ namespace SIP.PokemonProject.BL
                 }
             }
             catch (Exception ex) { throw; }
-
         }
 
         public async Task<int> Insert(Models.Type newType, bool rollback = false)
