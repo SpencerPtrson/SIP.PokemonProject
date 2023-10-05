@@ -11,5 +11,7 @@ public partial class tblTrainer : IEntity
 
     public int Money { get; set; }
 
+    public string TrainerClass { get; set; } = null!;
+
     public virtual ICollection<tblPokemonTeam> tblPokemonTeams { get; set; } = new List<tblPokemonTeam>();
 }

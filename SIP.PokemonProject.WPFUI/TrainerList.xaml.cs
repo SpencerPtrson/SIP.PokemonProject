@@ -19,13 +19,13 @@ using System.Windows.Shapes;
 namespace SIP.PokemonProject.WPFUI
 {
     /// <summary>
-    /// Interaction logic for TrainerViewer.xaml
+    /// Interaction logic for TrainerList.xaml
     /// </summary>
-    public partial class TrainerViewer : Window
+    public partial class TrainerList : Window
     {
         IEnumerable<Trainer> trainerList;
 
-        public TrainerViewer() {
+        public TrainerList() {
             InitializeComponent();
         }
 
@@ -44,7 +44,7 @@ namespace SIP.PokemonProject.WPFUI
                 dgTrainerList.ItemsSource = trainerList;
 
                 // Hide Guid columns
-                //dgTrainerList.Columns[0].Visibility = Visibility.Hidden;
+                dgTrainerList.Columns[0].Visibility = Visibility.Hidden;
                 //dgTrainerList.Columns[10].Visibility = Visibility.Hidden;
                 //dgTrainerList.Columns[11].Visibility = Visibility.Hidden;
 

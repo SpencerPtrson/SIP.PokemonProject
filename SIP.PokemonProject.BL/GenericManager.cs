@@ -25,6 +25,20 @@ namespace SIP.PokemonProject.BL
             catch (Exception) { throw; }
         }
 
+        public async Task<IList<T>> LoadListById(Guid id)
+        {
+            try
+            {
+                var rows = new PokemonEntities()
+                    .Set<T>()
+                    .Where(g => g.Id == id)
+                    .ToListAsync<T>()
+                    .ConfigureAwait(false);
+                return await rows;
+            }
+            catch (Exception) { throw; }
+        }
+
         public async Task<T> LoadById(Guid id)
         {
             try

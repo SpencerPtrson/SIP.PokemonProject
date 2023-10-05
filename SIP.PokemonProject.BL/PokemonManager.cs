@@ -17,9 +17,58 @@ namespace SIP.PokemonProject.BL
     {
         public async Task<List<Pokemon>> Load()
         {
+            try
+            {
+                List<Pokemon> pokemonList = new List<Pokemon>();
+                (await base.Load()).ToList().ForEach(p => pokemonList.Add(new Pokemon
+                {
+                    Id = p.Id,
+                    SpeciesId = p.SpeciesId,
+                    Type1 = p.Type1Id,
+                    Type2 = p.Type2Id,
+                    NatureId = p.NatureId,
+                    AbilityId = p.AbilityId,
+                    //ItemId = (Guid)p.ItemId,
+                    IsShiny = p.IsShiny,
+                    Nickname = p.Nickname,
+                    MajorStatusId = p.MajorStatus,
+                    Level = p.Level,
+
+                    MaxHP = (int)(Math.Floor(0.01d * (2 * p.Species.BaseHP + p.HPIVs + Math.Floor(0.25d * p.HPEVs)) * p.Level) + p.Level + 10),
+                    HPEV = p.HPEVs,
+                    HPIV = p.HPIVs,
+                    Attack = (int)(Math.Floor(0.01d * (2 * p.Species.BaseAttack + p.AttackIVs + Math.Floor(0.25d * p.AttackEVs)) * p.Level) + 5),
+                    AttackEV = p.AttackEVs,
+                    AttackIV = p.AttackIVs,
+                    Defense = (int)(Math.Floor(0.01d * (2 * p.Species.BaseDefense + p.DefenseIVs + Math.Floor(0.25d * p.DefenseEVs)) * p.Level) + 5),
+                    DefenseEV = p.DefenseEVs,
+                    DefenseIV = p.DefenseEVs,
+                    SpecialAttack = (int)(Math.Floor(0.01d * (2 * p.Species.BaseSpecialAttack + p.SpecialAttackIVs + Math.Floor(0.25d * p.SpecialAttackEVs)) * p.Level) + 5),
+                    SpecialAttackEV = p.SpecialAttackEVs,
+                    SpecialAttackIV = p.SpecialAttackIVs,
+                    SpecialDefense = (int)(Math.Floor(0.01d * (2 * p.Species.BaseSpecialDefense + p.SpecialDefenseIVs + Math.Floor(0.25d * p.SpecialDefenseEVs)) * p.Level) + 5),
+                    SpecialDefenseEV = p.SpecialDefenseEVs,
+                    SpecialDefenseIV = p.SpecialDefenseIVs,
+                    Speed = (int)(Math.Floor(0.01d * (2 * p.Species.BaseSpeed + p.SpeedIVs + Math.Floor(0.25d * p.SpeedEVs)) * p.Level) + 5),
+                    SpeedEV = p.SpeedEVs,
+                    SpeedIV = p.SpeedIVs,
+                }));
+
+                // Load the nature corresponding to the natureID of the pokemon and then multiply stats accordingly
+                foreach (Pokemon pokemon in pokemonList)
+                {
+                    NatureModifier(pokemon);
+                }
+                return pokemonList;
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public async Task<List<Pokemon>> LoadByTrainerId(Guid trainerId)
+        {
             // NEED TO IMPLEMENT NATURES INTO STAT CALCULATION
             List<Pokemon> pokemonList = new List<Pokemon>();
-            (await base.Load()).ToList().ForEach(p => pokemonList.Add(new Pokemon
+            (await base.LoadListById(trainerId)).ToList().ForEach(p => pokemonList.Add(new Pokemon
             {
                 Id = p.Id,
                 SpeciesId = p.SpeciesId,
@@ -52,14 +101,15 @@ namespace SIP.PokemonProject.BL
                 SpeedEV = p.SpeedEVs,
                 SpeedIV = p.SpeedIVs,
             }));
-            
+
             // Load the nature corresponding to the natureID of the pokemon and then multiply stats accordingly
-            foreach(Pokemon pokemon in pokemonList)
+            foreach (Pokemon pokemon in pokemonList)
             {
                 NatureModifier(pokemon);
             }
             return pokemonList;
         }
+
 
         public async Task<Pokemon> LoadById(Guid id)
         {

@@ -22,6 +22,7 @@ namespace SIP.PokemonProject.BL
                     Id = t.Id,
                     Name = t.Name,
                     Money = t.Money,
+                    TrainerClass = t.TrainerClass
                 }));
             return trainers;
         }
@@ -34,8 +35,29 @@ namespace SIP.PokemonProject.BL
                 Id = tblTrainer.Id,
                 Name = tblTrainer.Name,
                 Money = tblTrainer.Money,
-                Team = (List<Pokemon>)tblTrainer.tblPokemonTeams.Where(m => m.TrainerId == tblTrainer.Id)
+                TrainerClass = tblTrainer.TrainerClass
             };
+        }
+
+        public async Task<Trainer> LoadByTrainerName(string trainerName)
+        {
+            try
+            {
+                Trainer trainer = new Trainer();
+
+                using (PokemonEntities dc = new PokemonEntities())
+                {
+                    tblTrainer tblTrainer = dc.tblTrainers.Where(t => t.Name == trainerName).FirstOrDefault();
+                    if (tblTrainer != null)
+                    {
+                        trainer.TrainerClass = tblTrainer.TrainerClass;
+                        trainer.Name = tblTrainer.Name;
+                        trainer.Money = tblTrainer.Money;
+                    }
+                    return trainer;
+                }
+            }
+            catch (Exception ex) { throw; }
         }
 
         public async Task<int> Insert(Trainer trainer, bool rollback = false)
